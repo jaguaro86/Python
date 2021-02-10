@@ -1,7 +1,9 @@
-user_input = str(input("Введите число: "))
+# 3. Узнайте у пользователя число n.
+# Найдите сумму чисел n + nn + nnn.
+# Например, пользователь ввёл число 3.
+# Считаем 3 + 33 + 333 = 369.
 
-num1 = int(user_input)
-num2 = int(user_input+user_input)
-num3 = int(user_input+user_input+user_input)
+ui = int(input("Введите число: "))
 
-print(num1+num2+num3)
+num = ui + int(f"{ui}{ui}") + int(f"{ui}{ui}{ui}")
+print(num)
