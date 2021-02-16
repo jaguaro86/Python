@@ -22,7 +22,7 @@ for b in my_list:
        a = i
     i += 1
 
-if a != "":
+if a:
     a += 1
     my_list.insert(a, user_input)
 else:
