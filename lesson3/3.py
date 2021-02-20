@@ -2,7 +2,7 @@
 # и возвращает сумму наибольших двух аргументов.
 
 def my_func(a, b, c):
-    arr = [a, b, c]
+    arr = sorted([a, b, c])
     d = int(arr[1]) + int(arr[2])
     return d
 
