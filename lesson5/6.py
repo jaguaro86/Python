@@ -13,3 +13,16 @@
 Пример словаря:
 {“Информатика”: 170, “Физика”: 40, “Физкультура”: 30}
 """
+import re
+
+subjects_hours = {}
+with open("test6.txt", "r", encoding="UTF-8") as f_obj:
+    subjects = f_obj.read().split("\n")
+    for i in subjects:
+        sub_det = i.split(":")
+        result = re.findall(r"\d{1,3}", sub_det[1])
+        sum_subjects = 0
+        for x in result:
+            sum_subjects += int(x)
+        subjects_hours[sub_det[0]] = sum_subjects
+    print(subjects_hours)

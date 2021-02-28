@@ -17,3 +17,24 @@
 
 Подсказка: использовать менеджеры контекста.
 """
+import json
+
+
+average_profit = 0
+count_firms = 0
+firms = {}
+profits = {}
+with open("test7.txt", "r", encoding="UTF-8") as f_obj:
+    for i in f_obj:
+        c_firm = i.split()
+        c_profit = int(c_firm[2]) - int(c_firm[3])
+        if c_profit > 0:
+            average_profit += c_profit
+        firms[c_firm[0]] = c_profit
+        count_firms += 1
+    profits["average_profit"] = average_profit / count_firms
+    json_list = [firms, profits]
+    print(json_list)
+
+with open("json_example.json", "w") as json_obj:
+    json.dump(json_list, json_obj)
