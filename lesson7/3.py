@@ -23,3 +23,42 @@
 вернет строку: *****\n*****\n*****.
 Подсказка: подробный список операторов для перегрузки доступен по ссылке.
 """
+
+
+class Cell:
+    def __init__(self, num):
+        self.num = int(num)
+
+    def __str__(self):
+        return self.num * "*"
+
+    def __add__(self, other):
+        return Cell(self.num + other.num)
+
+    def __sub__(self, other):
+        return Cell((self.num - other.num) if (self.num - other.num) > 0 else False)
+
+    def __mul__(self, other):
+        return Cell(int(self.num * other.num))
+
+    def __truediv__(self, other):
+        return Cell(round(self.num // other.num))
+
+    def make_order(self, cells):
+        row = ''
+        for i in range(int(self.num / cells)):
+            row += f"{Cell(cells)} \\n"
+        row += f"{Cell(self.num % cells)}"
+        return row
+
+
+cell1 = Cell(10)
+cell2 = Cell(12)
+print(cell1)
+print(cell2)
+print(cell1 + cell2)
+print(cell2 - cell1)
+print(cell2 * cell1)
+print(cell1 / cell2)
+print(cell2.make_order(2))
+print(cell1.make_order(3))
